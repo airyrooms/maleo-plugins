@@ -1,6 +1,6 @@
 {
   "name": "@airy/maleo-typescript-plugin",
-  "version": "0.0.14",
+  "version": "0.0.15",
   "main": "lib/index.js",
   "license": "MIT",
   "scripts": {
@@ -16,5 +16,6 @@
   },
   "devDependencies": {
     "@airy/maleo-gulp-plugin": "latest"
-  }
+  },
+  "gitHead": "160e83ba4115ac2e0f6b0c51d29494f63244a4e8"
 }
