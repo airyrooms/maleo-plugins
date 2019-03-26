@@ -1,0 +1,5 @@
+node_modules
+example
+*.json
+*.yml
+*.md

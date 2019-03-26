@@ -1,0 +1,37 @@
+sudo: required
+git:
+  quiet: true
+
+language: node_js
+node_js:
+  - "11"
+  - "10"
+  
+branches:
+  only:
+    - master
+
+cache:
+  yarn: true
+
+before_install:
+  - npm install --global yarn@1.10.1
+
+script:
+  - yarn build
+  - yarn test
+
+before_deploy:
+  - yarn test:cov
+  - echo "access=public" >> $HOME/.npmrc 2> /dev/null
+  - echo "//registry.npmjs.org/:_authToken=\${NPM_TOKEN}" >> $HOME/.npmrc 2> /dev/null
+  - bash ./ci/travis-checkout-branch.sh
+
+deploy:
+  - provider: script
+    skip_cleanup: true
+    script:
+      - echo "Publishing Stable"
+    on:
+      branch: master
+      node: "10"

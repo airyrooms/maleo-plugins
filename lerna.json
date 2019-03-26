@@ -1,0 +1,55 @@
+{
+  "lerna": "3.13.1",
+  "version": "independent",
+  "packages": [
+    "packages/*"
+  ],
+  "npmClient": "yarn",
+  "npmClientArgs": [
+    "--no-lockfile"
+  ],
+  "useWorkspaces": true,
+  "publishConfig": {
+    "access": "public"
+  },
+  "ignoreChanges": [
+    "*.md",
+    "*.test.*",
+    "**/__test__/**",
+    "*.yml",
+    "*.sh"
+  ],
+  "command": {
+    "version": {
+      "exact": false,
+      "githubRelease": true,
+      "noCommitHooks": true,
+      "conventionalCommits": true,
+      "allowBranch": [
+        "master"
+      ],
+      "ignoreChanges": [
+        "*.md",
+        "*.test.*",
+        "**/__test__/**",
+        "*.yml",
+        "*.sh"
+      ]
+    },
+    "publish": {
+      "forcePublish": false,
+      "npmClient": "npm",
+      "allowBranch": [
+        "master"
+      ],
+      "registry": "https://registry.npmjs.org/",
+      "ignoreChanges": [
+        "*.md",
+        "*.test.*",
+        "**/__test__/**",
+        "*.yml",
+        "*.sh"
+      ]
+    }
+  }
+}
