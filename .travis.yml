@@ -21,7 +21,6 @@ script:
   - yarn build
 
 before_deploy:
-  - yarn test:cov
   - echo "access=public" >> $HOME/.npmrc 2> /dev/null
   - echo "//registry.npmjs.org/:_authToken=\${NPM_TOKEN}" >> $HOME/.npmrc 2> /dev/null
   - bash ./ci/travis-checkout-branch.sh
