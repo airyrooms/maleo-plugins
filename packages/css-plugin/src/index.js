@@ -63,7 +63,7 @@ module.exports = (customConfig = {}) => {
         options: pluginOptions.cssLoader,
       };
 
-      const styleLoader = !isServer && {
+      const styleLoader = {
         loader: require.resolve('style-loader'),
       };
 
@@ -142,13 +142,13 @@ module.exports = (customConfig = {}) => {
       } else if (pluginOptions.enableISL) {
         config.module.rules.push({
           test: /\.css$/,
-          use: [require.resolve('isomorphic-style-loader'), cssLoader].filter(Boolean),
+          use: [require.resolve('isomorphic-style-loader'), cssLoader],
         });
       } else {
         // default config
         config.module.rules.push({
           test: /\.css$/,
-          use: [styleLoader, cssLoader],
+          use: [!isServer && styleLoader, cssLoader].filter(Boolean),
         });
       }
 

@@ -13,9 +13,6 @@
     "pageWithStyles.js",
     "withStyles.js"
   ],
-  "peerDependencies": {
-    "@airy/maleo": "^0.0.6-canary.0"
-  },
   "dependencies": {
     "chalk": "^2.4.2",
     "css-loader": "^1.0.1",
@@ -26,8 +23,6 @@
     "style-loader": "^0.23.1"
   },
   "devDependencies": {
-    "@airy/maleo-gulp-plugin": "latest",
-    "gulp": "gulpjs/gulp.git#4.0"
-  },
-  "gitHead": "a1ac0be142870f4f92a26ad44308f24309fe1859"
+    "@airy/maleo-gulp-plugin": "latest"
+  }
 }

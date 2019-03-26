@@ -8,9 +8,6 @@
     "watch": "rm -rf lib && gulp watch",
     "prepublish": "yarn build"
   },
-  "peerDependencies": {
-    "@airy/maleo": "^0.0.6-canary.0"
-  },
   "dependencies": {
     "fork-ts-checker-webpack-plugin": "^0.4.14",
     "ts-loader": "^5.3.0",
@@ -18,8 +15,6 @@
     "typescript": "^3.1.5"
   },
   "devDependencies": {
-    "@airy/maleo-gulp-plugin": "latest",
-    "gulp": "gulpjs/gulp.git#4.0"
-  },
-  "gitHead": "a1ac0be142870f4f92a26ad44308f24309fe1859"
+    "@airy/maleo-gulp-plugin": "latest"
+  }
 }
