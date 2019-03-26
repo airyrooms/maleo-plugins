@@ -75,3 +75,5 @@ packages/*/package-lock.json
 
 # OSX
 .DS_Store
+
+send.sh
