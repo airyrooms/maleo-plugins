@@ -34,13 +34,12 @@ module.exports = (customConfig = {}) => {
       const { isServer, env } = context;
       const isDev = env === 'development';
 
-      const { cssPluginOptions } = customConfig;
       const pluginOptions = {
         ...defaultOptions,
-        ...(cssPluginOptions || {}),
+        ...customConfig,
         cssLoader: {
           ...defaultOptions.cssLoader,
-          ...(cssPluginOptions.cssLoader || {}),
+          ...(customConfig.cssLoader || {}),
         },
       };
 
