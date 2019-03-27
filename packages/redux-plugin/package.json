@@ -1,6 +1,6 @@
 {
   "name": "@airy/maleo-redux-plugin",
-  "version": "0.0.17",
+  "version": "0.0.18",
   "main": "lib/index.js",
   "license": "MIT",
   "scripts": {
@@ -16,5 +16,5 @@
   "devDependencies": {
     "@airy/maleo-gulp-plugin": "latest"
   },
-  "gitHead": "de8065ea833a7a21da56cb31770610929e23b985"
+  "gitHead": "d2fe8e33d584df2c43421138f744c294ba2f73f6"
 }
