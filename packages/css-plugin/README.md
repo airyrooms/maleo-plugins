@@ -66,7 +66,7 @@ export default class Component extends React.Component {
 ### Advanced Usage
 
 #### With CSS Modules
-A CSS Module is a CSS file in which all class names and animation names are scoped locally by default. Maleo-css-plugins uses [css-loader](https://github.com/webpack-contrib/css-loader), and you can configure the `css-loader` at `maleo.config.js` through `cssPluginOptions.cssLoader` options key.
+A CSS Module is a CSS file in which all class names and animation names are scoped locally by default. Maleo-css-plugins uses [css-loader](https://github.com/webpack-contrib/css-loader), and you can configure the `css-loader` at `maleo.config.js` through `cssLoader` options key.
 
 For example:
 ```javascript
@@ -74,21 +74,19 @@ For example:
 const cssPlugin = require('@airy/maleo-css-plugin');
 
 module.exports = cssPlugin({
-  cssPluginOptions: {
-    cssLoader: {
-      modules: true, // Add this line
-      localIdentName: '[path][name]__[local]--[hash:base64:5]', // Optional default: '[hash:base64]'
-      // other options
-      // url: true,
-      // import: true,
-      // context: undefined,
-      // hashPrefix: undefined,
-      // getLocalIdent: undefined,
-      // sourceMap: false,
-      // camelCase: false,
-      // importLoaders: 0,
-      // exportOnlyLocals: false,
-    },
+  cssLoader: {
+    modules: true, // Add this line
+    localIdentName: '[path][name]__[local]--[hash:base64:5]', // Optional default: '[hash:base64]'
+    // other options
+    // url: true,
+    // import: true,
+    // context: undefined,
+    // hashPrefix: undefined,
+    // getLocalIdent: undefined,
+    // sourceMap: false,
+    // camelCase: false,
+    // importLoaders: 0,
+    // exportOnlyLocals: false,
   },
 });
 ```
@@ -129,11 +127,9 @@ const cssPlugin = require('@airy/maleo-css-plugin');
 
 module.exports = cssPlugin({
   enableISL: true, // Add this line
-  cssPluginOptions: {
-    cssLoader: {
-      modules: true,
-      localIdentName: '[path][name]__[local]--[hash:base64:5]',
-    },
+  cssLoader: {
+    modules: true,
+    localIdentName: '[path][name]__[local]--[hash:base64:5]',
   },
 });
 ```
@@ -198,11 +194,9 @@ module.exports = cssPlugin({
   //  publicPath: undefined, // automatically follows webpack's publicPath if set undefined
   //  cache: true, // will enable long term caching by appending '[contenthash]' to filename and chunkFilename
   // },
-  cssPluginOptions: {
-    cssLoader: {
-      modules: true,
-      localIdentName: '[path][name]__[local]--[hash:base64:5]',
-    },
+  cssLoader: {
+    modules: true,
+    localIdentName: '[path][name]__[local]--[hash:base64:5]',
   },
 });
 ```
