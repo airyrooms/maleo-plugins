@@ -4,6 +4,7 @@
 - [@airy/maleo-css-plugin](https://github.com/airyrooms/maleo-plugins/tree/master/packages/css-plugin)
 - [@airy/maleo-redux-plugin](https://github.com/airyrooms/maleo-plugins/tree/master/packages/redux-plugin)
 - [@airy/maleo-typescript-plugin](https://github.com/airyrooms/maleo-plugins/tree/master/packages/typescript-plugin)
+- [@airy/maleo-compose-plugin](https://github.com/airyrooms/maleo-plugins/tree/master/packages/compose-plugin)
 - [more to come](https://github.com/airyrooms/maleo.js/issues/152)
 
 
