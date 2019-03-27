@@ -22,7 +22,7 @@
   "command": {
     "version": {
       "exact": false,
-      "push": false,
+      "push": true,
       "githubRelease": true,
       "noCommitHooks": true,
       "conventionalCommits": true,
