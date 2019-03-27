@@ -1,0 +1,23 @@
+{
+  "name": "@airy/maleo-compose-plugin",
+  "version": "0.0.1",
+  "main": "lib/index.js",
+  "license": "MIT",
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "build": "rm -rf lib && gulp",
+    "watch": "rm -rf lib && gulp watch",
+    "prepublish": "yarn build"
+  },
+  "peerDependencies": {
+    "@airy/maleo": "latest"
+  },
+  "dependencies": {
+    "chalk": "^2.4.2"
+  },
+  "devDependencies": {
+    "@airy/maleo-gulp-plugin": "latest"
+  }
+}
