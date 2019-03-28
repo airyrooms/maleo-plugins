@@ -1,19 +1,41 @@
 import React from 'react';
 import { Provider } from 'react-redux';
+import hoistStatics from 'hoist-non-react-statics';
+
 import { STORE_KEY } from './const';
 
-const isServer = typeof window === 'undefined';
-
 export const withRedux = (makeStoreClient) => {
-  return (App) =>
+  return (Wrap) => {
     class ReduxWrapper extends React.Component {
-      static getInitialProps(ctx) {
-        if (isServer) {
-          return {
-            store: makeStoreClient(isServer, {}),
-          };
-        }
+      static displayName = `<ReduxWrapper Component={Wrap} />`;
 
+      render() {
+        const { store, ...props } = this.props;
+
+        return (
+          <Provider store={store}>
+            <Wrap store={store} {...props} />
+          </Provider>
+        );
+      }
+    }
+
+    // Hoist all Wrap statics back to ReduxWrapper
+    const ReduxWrapperComponent = hoistStatics(ReduxWrapper, Wrap);
+
+    // Alter the getInitialProps to use ReduxWrapper's
+    // Make the redux store available on other's getInitialProps
+    // By holding the Wrap's getInitialProps call until the end
+    // If Wrap's GIP doesnt return anything, we return our own context
+    ReduxWrapperComponent.getInitialProps = async (ctx) => {
+      const isServer = typeof window === 'undefined';
+      let reduxInitialProps = {};
+
+      if (isServer) {
+        reduxInitialProps = {
+          store: makeStoreClient(isServer, {}),
+        };
+      } else {
         const initialState = document.querySelectorAll('noscript#' + STORE_KEY).item(0);
         let data = {};
 
@@ -22,19 +44,30 @@ export const withRedux = (makeStoreClient) => {
           data = JSON.parse(textContent || '');
         }
 
-        return {
+        reduxInitialProps = {
           store: makeStoreClient(isServer, data),
         };
       }
 
-      render() {
-        const { store, ...props } = this.props;
+      try {
+        const context = {
+          ...ctx,
+          ...reduxInitialProps,
+        };
 
-        return (
-          <Provider store={store}>
-            <App store={store} {...props} />
-          </Provider>
-        );
+        if (typeof Wrap.getInitialProps === 'function') {
+          const wrapInitialProps = await Wrap.getInitialProps.call(Wrap, context);
+          // return context instead if Wrap doesnt return anything
+          return wrapInitialProps || context;
+        }
+
+        return context;
+      } catch (err) {
+        console.error('[@airy/maleo-redux-plugin]', err);
+        return context;
       }
     };
+
+    return ReduxWrapperComponent;
+  };
 };
