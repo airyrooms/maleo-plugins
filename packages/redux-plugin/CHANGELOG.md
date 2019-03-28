@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.20](https://github.com/alvinkl/maleo-plugins/compare/@airy/maleo-redux-plugin@0.0.19...@airy/maleo-redux-plugin@0.0.20) (2019-03-28)
+
+
+### Bug Fixes
+
+* **maleo-redux-plugin:** fix gip on wrap not called ([#6](https://github.com/alvinkl/maleo-plugins/issues/6)) ([2eadb83](https://github.com/alvinkl/maleo-plugins/commit/2eadb83))
+
+
+
+
+
 ## 0.0.19 (2019-03-27)
 
 
