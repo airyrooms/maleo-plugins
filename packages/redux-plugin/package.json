@@ -8,6 +8,9 @@
     "watch": "rm -rf lib && gulp watch",
     "prepublish": "yarn build"
   },
+  "dependencies": {
+    "hoist-non-react-statics": "^3.3.0"
+  },
   "peerDependencies": {
     "react": "^16.6.3",
     "react-redux": "^5.1.1",
