@@ -57,8 +57,7 @@ export const withRedux = (makeStoreClient) => {
 
         if (typeof Wrap.getInitialProps === 'function') {
           const wrapInitialProps = await Wrap.getInitialProps.call(Wrap, context);
-          // return context instead if Wrap doesnt return anything
-          return wrapInitialProps || context;
+          return { ...wrapInitialProps, ...context };
         }
 
         return context;
