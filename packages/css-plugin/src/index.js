@@ -5,6 +5,7 @@ const chalk = require('chalk');
 const defaultOptions = {
   enableISL: false,
   extractCss: false,
+  exclude: [],
   cssLoader: {
     url: true,
     import: true,
@@ -56,6 +57,8 @@ module.exports = (customConfig = {}) => {
         );
         throw new Error();
       }
+
+      const exclude = [/node_modules/, ...pluginOptions.exclude];
 
       const cssLoader = {
         loader: require.resolve('css-loader'),
@@ -128,6 +131,7 @@ module.exports = (customConfig = {}) => {
 
         config.module.rules.push({
           test: /\.css/,
+          exclude,
           use: [
             !isServer && {
               loader: MiniCssExtractPlugin.loader,
@@ -141,12 +145,14 @@ module.exports = (customConfig = {}) => {
       } else if (pluginOptions.enableISL) {
         config.module.rules.push({
           test: /\.css$/,
+          exclude,
           use: [require.resolve('isomorphic-style-loader'), cssLoader],
         });
       } else {
         // default config
         config.module.rules.push({
           test: /\.css$/,
+          exclude,
           use: [!isServer && styleLoader, cssLoader].filter(Boolean),
         });
       }
