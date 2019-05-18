@@ -57,13 +57,13 @@ export const withRedux = (makeStoreClient) => {
 
         if (typeof Wrap.getInitialProps === 'function') {
           const wrapInitialProps = await Wrap.getInitialProps.call(Wrap, context);
-          return { ...wrapInitialProps, ...context };
+          return { ...wrapInitialProps, ...reduxInitialProps };
         }
 
-        return context;
+        return null;
       } catch (err) {
         console.error('[@airy/maleo-redux-plugin]', err);
-        return context;
+        return null;
       }
     };
 

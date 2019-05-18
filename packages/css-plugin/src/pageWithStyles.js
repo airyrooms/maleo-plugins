@@ -10,14 +10,6 @@ export default (WrappedComponent) => {
   class PageWithStyles extends React.Component {
     static displayName = `<PageWithStyles Component={${displayName}} />`;
 
-    static getInitialProps(context) {
-      if (typeof WrappedComponent.getInitialProps === 'function') {
-        return WrappedComponent.getInitialProps.call(WrappedComponent, context);
-      }
-
-      return context;
-    }
-
     render() {
       // Only renders style on server
       // On client render, style will be moved to head
