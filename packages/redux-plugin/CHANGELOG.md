@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.22](https://github.com/airyrooms/maleo-plugins/compare/@airy/maleo-redux-plugin@0.0.21...@airy/maleo-redux-plugin@0.0.22) (2019-05-20)
+
+**Note:** Version bump only for package @airy/maleo-redux-plugin
+
+
+
+
+
 ## [0.0.21](https://github.com/airyrooms/maleo-plugins/compare/@airy/maleo-redux-plugin@0.0.19...@airy/maleo-redux-plugin@0.0.21) (2019-03-29)
 
 
