@@ -5,6 +5,10 @@ import hoistStatics from 'hoist-non-react-statics';
 import { STORE_KEY } from './const';
 
 export const withRedux = (makeStoreClient) => {
+  // store redux store so everytime wrap's getInitialProps got called
+  // doesn't create new redux store
+  let storedReduxStore;
+
   return (Wrap) => {
     class ReduxWrapper extends React.Component {
       static displayName = `<ReduxWrapper Component={Wrap} />`;
@@ -29,12 +33,9 @@ export const withRedux = (makeStoreClient) => {
     // If Wrap's GIP doesnt return anything, we return our own context
     ReduxWrapperComponent.getInitialProps = async (ctx) => {
       const isServer = typeof window === 'undefined';
-      let reduxInitialProps = {};
 
       if (isServer) {
-        reduxInitialProps = {
-          store: makeStoreClient(isServer, {}),
-        };
+        storedReduxStore = makeStoreClient(isServer, {});
       } else {
         const initialState = document.querySelectorAll('noscript#' + STORE_KEY).item(0);
         let data = {};
@@ -42,22 +43,23 @@ export const withRedux = (makeStoreClient) => {
         if (initialState) {
           const { textContent } = initialState;
           data = JSON.parse(textContent || '');
-        }
 
-        reduxInitialProps = {
-          store: makeStoreClient(isServer, data),
-        };
+          // remove element after hydrate
+          initialState.remove();
+
+          storedReduxStore = makeStoreClient(isServer, data);
+        }
       }
 
       try {
         const context = {
           ...ctx,
-          ...reduxInitialProps,
+          store: storedReduxStore,
         };
 
         if (typeof Wrap.getInitialProps === 'function') {
           const wrapInitialProps = await Wrap.getInitialProps.call(Wrap, context);
-          return { ...wrapInitialProps, ...reduxInitialProps };
+          return wrapInitialProps;
         }
 
         return null;
