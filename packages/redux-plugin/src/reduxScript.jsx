@@ -4,11 +4,13 @@ import { STORE_KEY } from './const';
 
 export class ReduxScript extends React.Component {
   static contextTypes = {
-    ctx: PropTypes.any,
+    initialProps: PropTypes.any,
   };
 
   render() {
-    const { store } = this.context.ctx;
+    const {
+      wrap: { store },
+    } = this.context.initialProps;
     const preloadedState = store.getState();
 
     return (
