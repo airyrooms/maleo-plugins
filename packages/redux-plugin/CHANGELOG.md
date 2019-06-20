@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.25](https://github.com/airyrooms/maleo-plugins/compare/@airy/maleo-redux-plugin@0.0.24...@airy/maleo-redux-plugin@0.0.25) (2019-06-20)
+
+
+### Bug Fixes
+
+* **redux-plugin:** add store to _global_ ([#13](https://github.com/airyrooms/maleo-plugins/issues/13)) ([f241b8e](https://github.com/airyrooms/maleo-plugins/commit/f241b8e))
+
+
+
+
+
 ## [0.0.24](https://github.com/airyrooms/maleo-plugins/compare/@airy/maleo-redux-plugin@0.0.23...@airy/maleo-redux-plugin@0.0.24) (2019-06-10)
 
 
