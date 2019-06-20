@@ -60,13 +60,17 @@ export const withRedux = (makeStoreClient) => {
         // Return store in any condition in order for Provider to receive the store
         if (typeof Wrap.getInitialProps === 'function') {
           const wrapInitialProps = await Wrap.getInitialProps.call(Wrap, context);
-          return { ...wrapInitialProps, store: storedReduxStore };
+          return {
+            ...wrapInitialProps,
+            store: storedReduxStore,
+            _global_: { ...(wrapInitialProps || {})._global_, store: storedReduxStore },
+          };
         }
 
-        return { store: storedReduxStore };
+        return { store: storedReduxStore, _global_: { store: storedReduxStore } };
       } catch (err) {
         console.error('[@airy/maleo-redux-plugin]', err);
-        return { store: storedReduxStore };
+        return { store: storedReduxStore, _global_: { store: storedReduxStore } };
       }
     };
 
