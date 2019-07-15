@@ -9,6 +9,7 @@
     "prepublish": "yarn build"
   },
   "dependencies": {
+    "flatted": "^2.0.1",
     "hoist-non-react-statics": "^3.3.0"
   },
   "peerDependencies": {
