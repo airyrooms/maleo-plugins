@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.26](https://github.com/airyrooms/maleo-plugins/compare/@airy/maleo-redux-plugin@0.0.25...@airy/maleo-redux-plugin@0.0.26) (2019-07-15)
+
+
+### Bug Fixes
+
+* **redux-plugin:** fix circular redux plugin ([#15](https://github.com/airyrooms/maleo-plugins/issues/15)) ([8ca83ec](https://github.com/airyrooms/maleo-plugins/commit/8ca83ec))
+
+
+
+
+
 ## [0.0.25](https://github.com/airyrooms/maleo-plugins/compare/@airy/maleo-redux-plugin@0.0.24...@airy/maleo-redux-plugin@0.0.25) (2019-06-20)
 
 
