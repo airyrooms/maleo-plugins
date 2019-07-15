@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { stringify } from 'flatted';
+
 import { STORE_KEY } from './const';
 
 export class ReduxScript extends React.Component {
@@ -17,7 +19,7 @@ export class ReduxScript extends React.Component {
       <noscript
         id={STORE_KEY}
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(preloadedState),
+          __html: stringify(preloadedState),
         }}
       />
     );
