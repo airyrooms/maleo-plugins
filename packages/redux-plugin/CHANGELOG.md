@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.27](https://github.com/airyrooms/maleo-plugins/compare/@airy/maleo-redux-plugin@0.0.26...@airy/maleo-redux-plugin@0.0.27) (2019-07-24)
+
+
+### Bug Fixes
+
+* **redux-plugin:** change json parse to flatted parse ([#16](https://github.com/airyrooms/maleo-plugins/issues/16)) ([ea258e7](https://github.com/airyrooms/maleo-plugins/commit/ea258e7))
+
+
+
+
+
 ## [0.0.26](https://github.com/airyrooms/maleo-plugins/compare/@airy/maleo-redux-plugin@0.0.25...@airy/maleo-redux-plugin@0.0.26) (2019-07-15)
 
 
