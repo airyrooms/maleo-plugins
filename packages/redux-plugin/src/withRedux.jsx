@@ -1,5 +1,6 @@
 import React from 'react';
 import { Provider } from 'react-redux';
+import { parse } from 'flatted';
 import hoistStatics from 'hoist-non-react-statics';
 
 import { STORE_KEY } from './const';
@@ -42,7 +43,7 @@ export const withRedux = (makeStoreClient) => {
 
         if (initialState) {
           const { textContent } = initialState;
-          data = JSON.parse(textContent || '');
+          data = parse(textContent || '');
 
           // remove element after hydrate
           initialState.remove();
